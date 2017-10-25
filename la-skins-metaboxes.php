@@ -300,15 +300,15 @@ function laskins_register_events_metabox() {
 
 }
 
-// add_action( 'cmb2_init', 'laskins_register_carousel_metabox' );
+add_action( 'cmb2_init', 'laskins_register_carousel_metabox' );
 
 function laskins_register_carousel_metabox() {
 	$prefix = '_laskins_carousel_';
 	
 	$cmb_media_item_box = new_cmb2_box( array(
 		'id'            => $prefix . 'metabox',
-		'title'         => __( 'Carousel Data - All fields are optional', 'cmb2' ),
-		'object_types'  => array( 'module', 'media_items', 'tribe_events', 'page', ), // Post type
+		'title'         => __( 'Heaing Options - All fields are optional', 'cmb2' ),
+		'object_types'  => array( /*'module', 'media_items',*/ 'tribe_events', /*'page',*/ ), // Post type
 		'context'       => 'normal',
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
@@ -317,6 +317,18 @@ function laskins_register_carousel_metabox() {
 	) );
 
 	$cmb_media_item_box->add_field( array(
+		'name'       => __( 'Horizontal Position', 'cmb2' ),
+		'id'         => $prefix . 'hor_pos',
+		'desc' => __( 'Enter a number from 0 to 100 that sets the horizontal position of the left side of the text block as a percentage with 0 being flush left and 100 being flush right', 'cmb2' ),
+		'type'       => 'text_small',
+	) );
+	$cmb_media_item_box->add_field( array(
+		'name'       => __( 'Vertical Position', 'cmb2' ),
+		'id'         => $prefix . 'ver_pos',
+		'desc' => __( 'Enter a number from 0 to 100 that sets the vertical position of the top of the text block with 0 being at the top and 100 being at the bottom', 'cmb2' ),
+		'type'       => 'text_small',
+	) );
+	/* $cmb_media_item_box->add_field( array(
 		'name'		=> __( 'Title Box Position - Left', 'cmb2' ),
 		'desc'       => __( 'Enter a percentage from 0-100. Controls the horizontal position of the text description on home/category pages. To hide title completely, set to 100.', 'cmb2' ),
 		'id' 			=> $prefix . 'exceprt_position_left',
@@ -342,7 +354,7 @@ function laskins_register_carousel_metabox() {
 		'desc'       => __( 'Enter a percentage from 0-100. Controls the vertical position of the text description on home/category pages. If used, this will override the "Top" setting.', 'cmb2' ),
 		'id' 			=> $prefix . 'exceprt_position_bottom',
 		'type'		=> 'text_small',
-	) );
+	) ); */
 
 	$cmb_media_item_box->add_field( array(
 		'name'		=> __( 'Title Box Text Color', 'cmb2' ),
