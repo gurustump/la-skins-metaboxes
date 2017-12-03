@@ -520,7 +520,7 @@ function laskins_register_slider_metabox() {
 			'show_thumbnails' 	=> true,
 			'filter_boxes'			=> true,
 			'query_args'			=> array(
-				'post_type'	=> array('media_items', 'tribe_events', 'page')
+				'post_type'	=> array('media_items', 'tribe_events', 'page','post')
 			)
 		)
 	) );
