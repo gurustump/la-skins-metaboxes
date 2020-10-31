@@ -307,13 +307,20 @@ function laskins_register_carousel_metabox() {
 	
 	$cmb_media_item_box = new_cmb2_box( array(
 		'id'            => $prefix . 'metabox',
-		'title'         => __( 'Heaing Options - All fields are optional', 'cmb2' ),
+		'title'         => __( 'Heading Options - All fields are optional', 'cmb2' ),
 		'object_types'  => array( /*'module', 'media_items',*/ 'tribe_events', /*'page',*/ ), // Post type
 		'context'       => 'normal',
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
 		// 'cmb_styles' => false, // false to disable the CMB stylesheet
 		// 'closed'     => true, // true to keep the metabox closed by default
+	) );
+
+	$cmb_media_item_box->add_field( array(
+		'name'       => __( 'Hide Heading', 'cmb2' ),
+		'id'         => $prefix . 'hide_heading',
+		'desc' => __( 'Checkmark this box to hide the heading completely', 'cmb2' ),
+		'type'       => 'checkbox',
 	) );
 
 	$cmb_media_item_box->add_field( array(
