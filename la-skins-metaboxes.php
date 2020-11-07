@@ -275,7 +275,7 @@ function laskins_register_events_metabox() {
 	
 	$cmb_events_box = new_cmb2_box( array(
 		'id'            => $prefix . 'metabox',
-		'title'         => __( 'Additional Event Information', 'cmb2' ),
+		'title'         => __( 'Screening Event Information', 'cmb2' ),
 		'object_types'  => array( 'tribe_events', ), // Post type
 		'context'       => 'normal',
 		'priority'      => 'high',
@@ -286,7 +286,7 @@ function laskins_register_events_metabox() {
 
 	$cmb_events_box->add_field( array(
 		'name'		=> __( 'Film ID', 'cmb2' ),
-		'desc'       => __( 'If this event is a screening, enter the ID of the Film associated with this Event, or click the search button to find it.', 'cmb2' ),
+		'desc'       => __( 'Select the Film associated with this Screening Event.', 'cmb2' ),
 		'id' 			=> $prefix . 'film',
 		'type'		=> 'custom_attached_posts',
 		'options'	=> array(
@@ -296,6 +296,27 @@ function laskins_register_events_metabox() {
 				'post_type' => 'media_items',
 			),
 		),
+	) );
+
+	$cmb_events_box->add_field( array(
+		'name'		=> __( 'Button Text', 'cmb2' ),
+		'desc'       => __( 'Enter the text that will appear on the button that will appear in the description for a screening (and which can be used to lead to a place to purchase tickets for the screening)', 'cmb2' ),
+		'id' 			=> $prefix . 'btn_text',
+		'type'		=> 'text',
+	) );
+
+	$cmb_events_box->add_field( array(
+		'name'		=> __( 'Button Link', 'cmb2' ),
+		'desc'       => __( 'Enter the URL to which this button will lead', 'cmb2' ),
+		'id' 			=> $prefix . 'btn_link',
+		'type'		=> 'text_url',
+	) );
+
+	$cmb_events_box->add_field( array(
+		'name'		=> __( 'Open Link in New Tab', 'cmb2' ),
+		'desc'       => __( "Select this to make the button's link open in a new tab", 'cmb2' ),
+		'id' 			=> $prefix . 'btn_target',
+		'type'		=> 'checkbox',
 	) );
 
 }
